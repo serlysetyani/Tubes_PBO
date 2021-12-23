@@ -39,7 +39,7 @@ public class DAO {
             result.close();
             return list;
         } catch (SQLException ex){
-            //Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         } 
     }
