@@ -7,6 +7,7 @@ package Manajemen_Hotel;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.time.Period;
  */
 public class Sewa {
     private Pelanggan pemesan;
-    private Layanan[] service;
+    private ArrayList<Layanan> service;
     private Kamar kamar;
     private LocalDate check_in, check_out;
 
@@ -30,7 +31,11 @@ public class Sewa {
     public LocalDate getCheck_out() {return check_out;}
     public Kamar getKamar(){return kamar;};
     public int getDurasi(){return Period.between(check_in, check_in).getDays();}
+    public ArrayList<Layanan> getService() {return service;}
     
+    public void tambahLayanan(Layanan l){
+        this.service.add(l);
+    };
     public void CheckOut(){// belum tau mau ngapain
         
     }
