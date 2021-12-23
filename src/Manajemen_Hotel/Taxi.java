@@ -23,4 +23,9 @@ public class Taxi {
     
     public Taxi(){
     }
+
+    public Taxi(int harga_layanan, String no_plate) {
+        this.harga_layanan = harga_layanan;
+        this.no_plate = no_plate;
+    }
 }
