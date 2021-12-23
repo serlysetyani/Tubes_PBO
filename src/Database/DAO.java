@@ -22,14 +22,14 @@ public class DAO {
     private List<Pelanggan> list;
 
     public List<Pelanggan> getAllPelanggan() {
-         list = new ArrayList();
+        list = new ArrayList();
         ResultSet result;
         try {
             try (Statement statement = Koneksi_DB.getConnection().createStatement()){
                 result = statement.executeQuery("SELECT * FROM pelanggan");
                 while (result.next()){
                     Pelanggan pelanggan = new Pelanggan();
-                    pelanggan.setNo_identitas(result.getString(1));
+                    pelanggan.setNo_identitas(Integer.toString(result.getInt(1)));
                     pelanggan.setNama(result.getString(2));
                     pelanggan.setNo_telepon(result.getString(3));
                     pelanggan.setAlamat(result.getString(4));
@@ -39,7 +39,7 @@ public class DAO {
             result.close();
             return list;
         } catch (SQLException ex){
-            Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         } 
     }
