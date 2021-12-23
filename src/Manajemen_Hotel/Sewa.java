@@ -36,7 +36,10 @@ public class Sewa {
     public void tambahLayanan(Layanan l){
         this.service.add(l);
     };
-    public void CheckOut(){// belum tau mau ngapain
-        
+    public void CheckOut(){
+        this.kamar.setStatus("Kosong");
+    }
+    public void CheckIn(){
+        this.kamar.setStatus("Terisi");
     }
 }

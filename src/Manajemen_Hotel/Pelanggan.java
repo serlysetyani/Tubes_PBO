@@ -12,6 +12,8 @@ package Manajemen_Hotel;
 public class Pelanggan {
     private String nama, no_telepon, no_identitas, alamat;
 
+    public Pelanggan() {}
+
     public String getNama() {return nama;}
     public String getNo_telepon() {return no_telepon;}
     public String getNo_identitas() {return no_identitas;}
