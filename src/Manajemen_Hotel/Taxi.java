@@ -10,5 +10,17 @@ package Manajemen_Hotel;
  * @author SUYANTO
  */
 public class Taxi {
+    private int harga_layanan;
+    private String no_plate;
+
+    public int getHarga_layanan() {
+        return harga_layanan;
+    }
+
+    public String getNo_plate() {
+        return no_plate;
+    }
     
+    public Taxi(){
+    }
 }

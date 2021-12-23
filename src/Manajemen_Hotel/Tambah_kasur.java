@@ -10,5 +10,20 @@ package Manajemen_Hotel;
  * @author SUYANTO
  */
 public class Tambah_kasur {
+    private int harga_layanan, jumlah;
+
+    public int getHarga_layanan() {
+        return harga_layanan;
+    }
+
+    public int getJumlah() {
+        return jumlah;
+    }
+
+    public Tambah_kasur(int harga_layanan, int jumlah) {
+        this.harga_layanan = harga_layanan;
+        this.jumlah = jumlah;
+    }
     
+    public Tambah_kasur(){}
 }
