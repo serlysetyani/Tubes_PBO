@@ -6,6 +6,8 @@
 package Database;
 
 import Manajemen_Hotel.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,4 +46,20 @@ public class DAO {
         } 
     }
     
+    public void insertPelanggan(Pelanggan pelanggan) {
+        try {
+            Connection connection = Koneksi_DB.getConnection();
+            String sql = "INSERT INTO pelanggan (No_Identitas, Nama, No_Telepon, Alamat) VALUES (?,?,?,?)";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, Integer.parseInt(pelanggan.getNo_identitas()));
+                statement.setString(2, pelanggan.getNama());
+                statement.setString(3, pelanggan.getNo_telepon());
+                statement.setString(4, pelanggan.getAlamat());
+                statement.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }
