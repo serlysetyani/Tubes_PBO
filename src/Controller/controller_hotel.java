@@ -44,10 +44,17 @@ public class controller_hotel {
         public void actionPerformed(ActionEvent ae) {
              switch (ae.getActionCommand()) {
                  case "Tambah":
-                     
-                     break;
+                    String no_identitas = view.getFormId().getText();
+                    String nama = view.getFormNama().getText();
+                    String no_telepon = view.getFormNoTelp().getText();
+                    String alamat = view.getFormAlamat().getText();
+                    Pelanggan pelanggan = new Pelanggan(nama, no_telepon, no_identitas, alamat);
+                    dao.insertPelanggan(pelanggan);
+                    p.add(pelanggan);
+                    loadList();
+                    break;
                  default:
-                     break;
+                    break;
              }
         }
     
