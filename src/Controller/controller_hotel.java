@@ -7,6 +7,8 @@ package Controller;
 import Database.*;
 import Manajemen_Hotel.*;
 import View.Hotel_interface;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.DefaultListModel;
 /**
@@ -22,6 +24,8 @@ public class controller_hotel {
         this.view = view;
         this.dao = new DAO();
         this.p = dao.getAllPelanggan();
+        // buat form pendaftaran
+        view.addButtonListenerPendaftaran(new ButtonHandlerPendaftaran());
         loadList();
     }
 
@@ -35,4 +39,17 @@ public class controller_hotel {
         view.getListPelanggan().setModel(names);
     }
 
+    class ButtonHandlerPendaftaran implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+             switch (ae.getActionCommand()) {
+                 case "Tambah":
+                     
+                     break;
+                 default:
+                     break;
+             }
+        }
+    
+    }
 }

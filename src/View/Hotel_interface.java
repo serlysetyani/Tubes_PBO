@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JList;
 
 /**
@@ -514,4 +515,7 @@ public class Hotel_interface extends javax.swing.JFrame {
         return ListPelanggan;
     }
     
+    public void addButtonListenerPendaftaran(ActionListener ButtonListener){
+        tambah.addActionListener(ButtonListener);
+    }
 }
