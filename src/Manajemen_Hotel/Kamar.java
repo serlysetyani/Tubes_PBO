@@ -19,6 +19,8 @@ public class Kamar {
         this.nomor = nomor;
         this.harga = harga;
     }
+    
+    public Kamar(){}
 
     public String getStatus() {
         return status;

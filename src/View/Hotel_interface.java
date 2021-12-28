@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
@@ -21,7 +22,7 @@ public class Hotel_interface extends javax.swing.JFrame {
     public Hotel_interface() {
         initComponents();
         this.setTitle("Manajemen Hotel");
-        this.ItemBlnCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Jan","Feb","Mar","Apr","Mei","Jun","Jul", "Agu", "Sep", "Okt", "Nov", "Des"}));
+        this.ItemBlnCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"1","2","3","4","5","6","7", "8", "9", "10", "11","12"}));
         this.ItemTglCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"1","2","3","4","5","6","7", "8", "9", "10", "11","12","13","14","15","16","17", "18", "19", "20", "21","22","23","24","25","26","27", "28", "29", "30", "31"}));
         this.ItemThnCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"2021","2022","2023","2024","2025"}));
         
@@ -175,10 +176,6 @@ public class Hotel_interface extends javax.swing.JFrame {
         );
 
         jTabbedPane2.addTab("Pendaftaran", jPanel2);
-
-        ItemPelangganCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        ItemPilihKamarCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ItemTglCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -516,9 +513,23 @@ public class Hotel_interface extends javax.swing.JFrame {
     public JTextField getFormId() {return formId;}
     public JTextField getFormNama() {return formNama;}
     public JTextField getFormNoTelp() {return formNoTelp;}
+
+    // halaman check in
+    public JComboBox<String> getItemPelangganCheckIn() {return ItemPelangganCheckIn;}
+    public JComboBox<String> getItemPilihKamarCheckIn() {return ItemPilihKamarCheckIn;}
+    public JComboBox<String> getItemTglCheckIn() {return ItemTglCheckIn;}
+    public JComboBox<String> getItemBlnCheckIn() {return ItemBlnCheckIn;}
+    public JComboBox<String> getItemThnCheckIn() {return ItemThnCheckIn;}
+    public JComboBox<String> getItemPelangganLayananTambahan() {return ItemPelangganLayananTambahan;}
+
+    
+    
     
     
     public void addButtonListenerPendaftaran(ActionListener ButtonListener){
         tambah.addActionListener(ButtonListener);
+    }
+    public void addButtonListenerCheckIn(ActionListener ButtonListener){
+        OkCheckIn.addActionListener(ButtonListener);
     }
 }

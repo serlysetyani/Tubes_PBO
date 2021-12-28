@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author SUYANTO
  */
-public class DAO {
+public class DAO_Pelanggan {
     private List<Pelanggan> list;
 
     public List<Pelanggan> getAllPelanggan() {
@@ -45,6 +45,27 @@ public class DAO {
             return null;
         } 
     }
+
+    public Pelanggan getPelangganByIDPelanggan(int id_pelanggan) {
+        Pelanggan pelanggan;
+        ResultSet result;
+        try {
+            try (Statement statement = Koneksi_DB.getConnection().createStatement()){
+                result = statement.executeQuery("SELECT * FROM pelanggan WHERE No_identitas = "+id_pelanggan);
+                pelanggan = new Pelanggan();
+                pelanggan.setNo_identitas(Integer.toString(result.getInt(1)));
+                pelanggan.setNama(result.getString(2));
+                pelanggan.setNo_telepon(result.getString(3));
+                pelanggan.setAlamat(result.getString(4));
+            }
+            result.close();
+            return pelanggan;
+        } catch (SQLException ex){
+            Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } 
+    }
+    
     
     public void insertPelanggan(Pelanggan pelanggan) {
         try {
@@ -58,7 +79,7 @@ public class DAO {
                 statement.executeUpdate();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
