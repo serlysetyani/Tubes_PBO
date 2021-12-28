@@ -5,7 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JList;
+import javax.swing.JTextField;
 
 /**
  *
@@ -447,7 +449,6 @@ public class Hotel_interface extends javax.swing.JFrame {
     private void ItemJumlahLayananTambahanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemJumlahLayananTambahanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ItemJumlahLayananTambahanActionPerformed
-
     private void OkCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkCheckInActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_OkCheckInActionPerformed
@@ -510,8 +511,14 @@ public class Hotel_interface extends javax.swing.JFrame {
     private javax.swing.JTextField totalHarga;
     // End of variables declaration//GEN-END:variables
 
-    public JList<String> getListPelanggan() {
-        return ListPelanggan;
-    }
+    public JList<String> getListPelanggan() {return ListPelanggan;}
+    public JTextField getFormAlamat() {return formAlamat;}
+    public JTextField getFormId() {return formId;}
+    public JTextField getFormNama() {return formNama;}
+    public JTextField getFormNoTelp() {return formNoTelp;}
     
+    
+    public void addButtonListenerPendaftaran(ActionListener ButtonListener){
+        tambah.addActionListener(ButtonListener);
+    }
 }

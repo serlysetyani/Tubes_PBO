@@ -6,6 +6,8 @@
 package Database;
 
 import Manajemen_Hotel.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,14 +24,14 @@ public class DAO {
     private List<Pelanggan> list;
 
     public List<Pelanggan> getAllPelanggan() {
-         list = new ArrayList();
+        list = new ArrayList();
         ResultSet result;
         try {
             try (Statement statement = Koneksi_DB.getConnection().createStatement()){
                 result = statement.executeQuery("SELECT * FROM pelanggan");
                 while (result.next()){
                     Pelanggan pelanggan = new Pelanggan();
-                    pelanggan.setNo_identitas(result.getString(1));
+                    pelanggan.setNo_identitas(Integer.toString(result.getInt(1)));
                     pelanggan.setNama(result.getString(2));
                     pelanggan.setNo_telepon(result.getString(3));
                     pelanggan.setAlamat(result.getString(4));
@@ -44,4 +46,20 @@ public class DAO {
         } 
     }
     
+    public void insertPelanggan(Pelanggan pelanggan) {
+        try {
+            Connection connection = Koneksi_DB.getConnection();
+            String sql = "INSERT INTO pelanggan (No_Identitas, Nama, No_Telepon, Alamat) VALUES (?,?,?,?)";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, Integer.parseInt(pelanggan.getNo_identitas()));
+                statement.setString(2, pelanggan.getNama());
+                statement.setString(3, pelanggan.getNo_telepon());
+                statement.setString(4, pelanggan.getAlamat());
+                statement.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }

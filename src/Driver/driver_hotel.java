@@ -6,7 +6,6 @@
 package Driver;
 
 import Controller.controller_hotel;
-import Manajemen_Hotel.*;
 import View.Hotel_interface;
 
 /**
@@ -19,7 +18,6 @@ public class driver_hotel {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Pelanggan p = new Pelanggan();
         Hotel_interface view = new Hotel_interface();
         controller_hotel c = new controller_hotel(view);
         
