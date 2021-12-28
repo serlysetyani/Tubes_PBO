@@ -23,8 +23,11 @@ public class Sewa {
         this.pemesan = pemesan;
         this.kamar = kamar;
         this.check_in = check_in;
+        this.service = new ArrayList();
     }
-    public Sewa() {}
+    public Sewa() {
+        this.service = new ArrayList();
+    }
 
     public void setPemesan(Pelanggan pemesan) {this.pemesan = pemesan;}
     public void setService(ArrayList<Layanan> service) {this.service = service;}

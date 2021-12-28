@@ -10,7 +10,6 @@ import View.Hotel_interface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -32,6 +31,7 @@ public class controller_hotel {
         this.view = view;
         this.dao_p = new DAO_Pelanggan();
         this.dao_k = new DAO_Kamar();
+        this.dao_s = new DAO_Sewa();
         this.p = dao_p.getAllPelanggan();
         this.k = dao_k.getKamarKosong();
         this.s = new ArrayList();
@@ -126,7 +126,6 @@ public class controller_hotel {
                     Sewa se = new Sewa(pelanggan, kamar, LocalDate.of(tahun,bulan,tanggal));
                     s.add(se);
                     dao_s.insertSewa(se);
-                    
                     break;
                 default:
                     break;
