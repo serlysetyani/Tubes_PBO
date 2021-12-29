@@ -178,6 +178,10 @@ public class Hotel_interface extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Pendaftaran", jPanel2);
 
+        ItemPelangganCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ItemPilihKamarCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         ItemTglCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ItemBlnCheckIn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
