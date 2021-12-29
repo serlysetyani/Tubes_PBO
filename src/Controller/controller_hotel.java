@@ -10,8 +10,8 @@ import View.Hotel_interface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 /**
  *
@@ -34,7 +34,7 @@ public class controller_hotel {
         this.dao_s = new DAO_Sewa();
         this.p = dao_p.getAllPelanggan();
         this.k = dao_k.getKamarKosong();
-        this.s = new ArrayList();
+        this.s = dao_s.getAllSewa();
         
         // buat form pendaftaran
         view.addButtonListenerPendaftaran(new ButtonHandlerPendaftaran());
@@ -59,12 +59,16 @@ public class controller_hotel {
     
     // =================================== buat check in ======================
     public void loadListNamaPendaftar(){
+        DefaultComboBoxModel names = new DefaultComboBoxModel();
+        view.getItemPelangganCheckIn().setModel(names);
         for (int i = 0; i < p.size(); i++){
            view.getItemPelangganCheckIn().addItem(p.get(i).getNama());
         }
     }
     
     public void loadListKamar(){
+        DefaultComboBoxModel kamar = new DefaultComboBoxModel();
+        view.getItemPilihKamarCheckIn().setModel(kamar);
         for (int i = 0; i < k.size(); i++){
            view.getItemPilihKamarCheckIn().addItem(Integer.toString(k.get(i).getNomor()));
         }
@@ -73,8 +77,8 @@ public class controller_hotel {
     // ================================= buat layanan tambahan ================
     
     
-    // ==================================== Button Handler ===========================================
-    // ======================= Pendaftaran =============================
+    // ======================= Button Handler ==================================
+    // ======================= Pendaftaran =====================================
     class ButtonHandlerPendaftaran implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -113,7 +117,7 @@ public class controller_hotel {
                     for (Kamar ka : k){
                         if (ka.getNomor() == no_kamar){
                             kamar = ka;
-                            kamar.setStatus("Terisi");
+                            kamar.setStatus("terisi");
                             break;
                         }
                     }
@@ -126,6 +130,10 @@ public class controller_hotel {
                     Sewa se = new Sewa(pelanggan, kamar, LocalDate.of(tahun,bulan,tanggal));
                     s.add(se);
                     dao_s.insertSewa(se);
+                    dao_k.updateKamarStatus(kamar);
+                    view.showMessageBox("Data Sewa Berhasil Ditambahkan");
+                    k = dao_k.getKamarKosong();
+                    loadListKamar();
                     break;
                 default:
                     break;

@@ -8,6 +8,7 @@ package View;
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -521,10 +522,6 @@ public class Hotel_interface extends javax.swing.JFrame {
     public JComboBox<String> getItemBlnCheckIn() {return ItemBlnCheckIn;}
     public JComboBox<String> getItemThnCheckIn() {return ItemThnCheckIn;}
     public JComboBox<String> getItemPelangganLayananTambahan() {return ItemPelangganLayananTambahan;}
-
-    
-    
-    
     
     public void addButtonListenerPendaftaran(ActionListener ButtonListener){
         tambah.addActionListener(ButtonListener);
@@ -532,4 +529,8 @@ public class Hotel_interface extends javax.swing.JFrame {
     public void addButtonListenerCheckIn(ActionListener ButtonListener){
         OkCheckIn.addActionListener(ButtonListener);
     }
+    
+    public void showMessageBox(String s) {
+        JOptionPane.showMessageDialog(this, s);
+    } 
 }

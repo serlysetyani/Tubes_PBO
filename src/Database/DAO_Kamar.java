@@ -6,6 +6,8 @@
 package Database;
 
 import Manajemen_Hotel.Kamar;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -61,5 +63,19 @@ public class DAO_Kamar {
             Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         } 
+    }
+    
+    public void updateKamarStatus(Kamar kamar){
+        try {
+            Connection connection = Koneksi_DB.getConnection();
+            String sql = "UPDATE kamar SET status = ? WHERE nomor_kamar = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setString(1, kamar.getStatus());
+                statement.setInt(2, kamar.getNomor());
+                statement.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
