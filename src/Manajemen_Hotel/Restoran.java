@@ -1,6 +1,8 @@
 package Manajemen_Hotel;
 
-public class Restoran {
+import java.time.LocalDate;
+
+public class Restoran extends Layanan{
     private int jumlah, harga_layanan;
     private String menu;
 
@@ -16,7 +18,8 @@ public class Restoran {
         return jumlah;
     }
 
-    public Restoran(int jumlah, int harga_layanan, String menu) {
+    public Restoran(int jumlah, int harga_layanan, String menu, LocalDate tanggal_dipesan) {
+        super(tanggal_dipesan);
         this.jumlah = jumlah;
         this.harga_layanan = harga_layanan;
         this.menu = menu;

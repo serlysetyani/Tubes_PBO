@@ -1,6 +1,8 @@
 package Manajemen_Hotel;
 
-public class Spa {
+import java.time.LocalDate;
+
+public class Spa extends Layanan{
     private int jumlah, harga_layanan;
     private String paket;
 
@@ -16,7 +18,8 @@ public class Spa {
         return paket;
     }
 
-    public Spa(int jumlah, int harga_layanan, String paket) {
+    public Spa(int jumlah, int harga_layanan, String paket, LocalDate tanggal_dipesan) {
+        super(tanggal_dipesan);
         this.jumlah = jumlah;
         this.harga_layanan = harga_layanan;
         this.paket = paket;

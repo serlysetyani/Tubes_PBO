@@ -5,26 +5,25 @@
  */
 package Manajemen_Hotel;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author PC-ASUS
  */
-public class Taxi {
+public class Taxi extends Layanan{
+    //atribut
     private int harga_layanan;
-    private String no_plat;
+    private int km_ditempuh;
 
-    public Taxi(int harga_layanan, String no_plat) {
-        this.harga_layanan = harga_layanan;
-        this.no_plat = no_plat;
-    }
-
-    public int getHarga_layanan() {
-        return harga_layanan;
-    }
-
-    public String getNo_plat() {
-        return no_plat;
-    }
+    public int getHarga_layanan() {return harga_layanan;}
+    public int getKm_ditempuh() {return km_ditempuh;}
     
     public Taxi(){}
+    public Taxi(int harga_layanan, int km_ditempuh, LocalDate tanggal_dipesan) {
+        super(tanggal_dipesan);
+        this.harga_layanan = harga_layanan;
+        this.km_ditempuh = km_ditempuh;
+    }
+    
 }

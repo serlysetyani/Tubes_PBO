@@ -5,11 +5,13 @@
  */
 package Manajemen_Hotel;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author A412FL
  */
-public class Laundry {
+public class Laundry extends Layanan{
     private int harga_layanan, berat_per_kg;
     
     public String getLayanan_dipesan(){
@@ -27,10 +29,10 @@ public class Laundry {
     public Laundry() {
     }
 
-    public Laundry(int harga_layanan, int berat_per_kg) {
+    public Laundry(int harga_layanan, int berat_per_kg, LocalDate tanggal_dipesan) {
+        super(tanggal_dipesan);
         this.harga_layanan = harga_layanan;
         this.berat_per_kg = berat_per_kg;
     }
-    
-    
+  
 }

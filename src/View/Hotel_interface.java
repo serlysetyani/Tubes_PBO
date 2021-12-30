@@ -272,8 +272,6 @@ public class Hotel_interface extends javax.swing.JFrame {
 
         lblJumLayananTambahan.setText("Jumlah layanan tambahan");
 
-        ItemPelangganLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         ItemLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ItemJumlahLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -548,7 +546,13 @@ public class Hotel_interface extends javax.swing.JFrame {
     public JComboBox<String> getItemBlnCheckIn() {return ItemBlnCheckIn;}
     public JComboBox<String> getItemThnCheckIn() {return ItemThnCheckIn;}
     public JComboBox<String> getItemPelangganLayananTambahan() {return ItemPelangganLayananTambahan;}
-    
+
+    public JComboBox<String> getBlnLayananTambahan() {return BlnLayananTambahan;}
+    public JComboBox<String> getItemJumlahLayananTambahan() {return ItemJumlahLayananTambahan;}
+    public JComboBox<String> getItemLayananTambahan() {return ItemLayananTambahan;}
+    public JComboBox<String> getTglLayananTambahan() {return TglLayananTambahan;}
+    public JComboBox<String> getThnLayananTambahan() {return ThnLayananTambahan;}
+     
     public void addButtonListenerPendaftaran(ActionListener ButtonListener){
         tambah.addActionListener(ButtonListener);
     }
