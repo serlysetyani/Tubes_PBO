@@ -50,7 +50,7 @@ public class DAO_Kamar {
         ResultSet result;
         try {
             try (Statement statement = Koneksi_DB.getConnection().createStatement()){
-                result = statement.executeQuery("SELECT * FROM kamar WHERE no_kamar = "+no_kamar);
+                result = statement.executeQuery("SELECT * FROM kamar WHERE nomor_kamar = "+no_kamar);
                 kamar = new Kamar();
                 kamar.setNomor(result.getInt(1));
                 kamar.setTipe(result.getString(2));
@@ -77,5 +77,27 @@ public class DAO_Kamar {
         } catch (SQLException ex) {
             Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public List<Kamar> getKamarTerisi() {
+        list = new ArrayList();
+        ResultSet result;
+        try {
+            try (Statement statement = Koneksi_DB.getConnection().createStatement()){
+                result = statement.executeQuery("SELECT * FROM kamar WHERE status = 'terisi'");
+                while (result.next()){
+                    Kamar kamar = new Kamar();
+                    kamar.setNomor(result.getInt(1));
+                    kamar.setTipe(result.getString(2));
+                    kamar.setHarga(result.getInt(3));
+                    kamar.setStatus(result.getString(4));
+                    list.add(kamar);
+                }
+            }
+            result.close();
+            return list;
+        } catch (SQLException ex){
+            Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } 
     }
 }

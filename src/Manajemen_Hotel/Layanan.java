@@ -11,7 +11,7 @@ import java.time.LocalDate;
  *
  * @author A412FL
  */
-class Layanan {
+public class Layanan {
     private LocalDate tanggal_dipesan;
 
     public Layanan(LocalDate tanggal_dipesan) {this.tanggal_dipesan = tanggal_dipesan;}

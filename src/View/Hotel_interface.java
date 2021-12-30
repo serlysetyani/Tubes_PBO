@@ -30,6 +30,12 @@ public class Hotel_interface extends javax.swing.JFrame {
         this.ItemBlnCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Jan","Feb","Mar","Apr","Mei","Jun","Jul", "Agu", "Sep", "Okt", "Nov", "Des"}));
         this.ItemTglCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"1","2","3","4","5","6","7", "8", "9", "10", "11","12","13","14","15","16","17", "18", "19", "20", "21","22","23","24","25","26","27", "28", "29", "30", "31"}));
         this.ItemThnCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"2021","2022","2023","2024","2025"}));
+        
+        this.TglLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"1","2","3","4","5","6","7", "8", "9", "10", "11","12","13","14","15","16","17", "18", "19", "20", "21","22","23","24","25","26","27", "28", "29", "30", "31"}));
+        this.BlnLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"1","2","3","4","5","6","7", "8", "9", "10", "11","12"}));
+        this.ThnLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"2021","2022","2023","2024","2025"}));
+        this.ItemLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"1","2","3","4","5","6","7", "8", "9", "10", "11","12","13"}));
+        this.ItemJumlahLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"1","2","3","4","5","6","7", "8", "9", "10", "11","12"}));
     }
 
     /**
@@ -78,8 +84,10 @@ public class Hotel_interface extends javax.swing.JFrame {
         ItemLayananTambahan = new javax.swing.JComboBox<>();
         ItemJumlahLayananTambahan = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        HargaLayananTambahan = new javax.swing.JTextField();
         OkLayananTambahan = new javax.swing.JButton();
+        TglLayananTambahan = new javax.swing.JComboBox<>();
+        BlnLayananTambahan = new javax.swing.JComboBox<>();
+        ThnLayananTambahan = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         lblPelangganCheckOut = new javax.swing.JLabel();
@@ -258,7 +266,7 @@ public class Hotel_interface extends javax.swing.JFrame {
 
         jLabel10.setText("FORM PEMESANAN LAYANAN TAMBAHAN");
 
-        lblPelangganLayananTambahan.setText("Pelanggan");
+        lblPelangganLayananTambahan.setText("Kamar");
 
         lblLayananTambahan.setText("Layanan Tambahan");
 
@@ -275,9 +283,15 @@ public class Hotel_interface extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Harga Satuan");
+        jLabel2.setText("Tanggal");
 
         OkLayananTambahan.setText("Ok");
+
+        TglLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        BlnLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ThnLayananTambahan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -300,12 +314,16 @@ public class Hotel_interface extends javax.swing.JFrame {
                             .addComponent(ItemJumlahLayananTambahan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ItemLayananTambahan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ItemPelangganLayananTambahan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(HargaLayananTambahan))))
-                .addContainerGap(156, Short.MAX_VALUE))
+                            .addComponent(TglLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(BlnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ThnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(OkLayananTambahan)
-                .addGap(86, 86, 86))
+                .addGap(57, 57, 57))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,11 +344,13 @@ public class Hotel_interface extends javax.swing.JFrame {
                     .addComponent(lblJumLayananTambahan))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HargaLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel2)
+                    .addComponent(TglLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BlnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ThnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(OkLayananTambahan)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("Layanan Tambahan", jPanel4);
@@ -461,7 +481,7 @@ public class Hotel_interface extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField HargaLayananTambahan;
+    private javax.swing.JComboBox<String> BlnLayananTambahan;
     private javax.swing.JComboBox<String> ItemBlnCheckIn;
     private javax.swing.JComboBox<String> ItemBlnCheckOut;
     private javax.swing.JComboBox<String> ItemJumlahLayananTambahan;
@@ -478,6 +498,8 @@ public class Hotel_interface extends javax.swing.JFrame {
     private javax.swing.JButton OkCheckIn;
     private javax.swing.JButton OkCheckOut;
     private javax.swing.JButton OkLayananTambahan;
+    private javax.swing.JComboBox<String> TglLayananTambahan;
+    private javax.swing.JComboBox<String> ThnLayananTambahan;
     private javax.swing.JTextField formAlamat;
     private javax.swing.JTextField formId;
     private javax.swing.JTextField formNama;

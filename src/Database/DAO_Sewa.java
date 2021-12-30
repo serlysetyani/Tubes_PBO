@@ -54,7 +54,7 @@ public class DAO_Sewa {
                 while (result.next()){
                     Sewa sewa = new Sewa();
                     sewa.setCheck_in(result.getDate(2).toLocalDate());
-                    sewa.setCheck_out(result.getDate(3).toLocalDate());
+                    sewa.setCheck_out(null);
                     sewa.setKamar(dao_k.getKamarByIDKamar(result.getInt(4)));
                     sewa.setPemesan(dao_p.getPelangganByIDPelanggan(result.getInt(5)));
                     list.add(sewa);
