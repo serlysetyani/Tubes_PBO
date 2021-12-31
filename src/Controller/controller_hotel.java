@@ -240,8 +240,12 @@ public class controller_hotel {
         public void actionPerformed(ActionEvent ae) {
             switch (ae.getActionCommand()){
                 case "Ok":
-                    //int no_kamar = view.getItemNoKamarCheckOut().get;
-                    
+                    //int no_kamar = Integer.parseInt(view.getItemNoKamarCheckOut().getSelectedItem().toString());
+                    //int tanggal = Integer.parseInt(view.getTglLayananTambahan().getSelectedItem().toString());
+                    //int bulan = Integer.parseInt(view.getBlnLayananTambahan().getSelectedItem().toString());
+                    //int tahun = Integer.parseInt(view.getThnLayananTambahan().getSelectedItem().toString());
+                    //Sewa sewa = 
+                    view.getHarga().setText("");
                     view.getKwitansiPembayaran().setVisible(true);
                     //view.getHarga().setText();
             }
