@@ -20,7 +20,7 @@ public class DAO_LayananTambahan {
     public void insertLayananTambahan(int id_kmr, int id_layanan, int jum){
         try {
             Connection connection = Koneksi_DB.getConnection();
-            String sql = "INSERT INTO layanan_dipesan (id_layanan_dipesan, id_kamar, id_layanan, jumlah_layanan VALUES (?,?,?,?)";
+            String sql = "INSERT INTO layanan_dipesan (id_layanan_dipesan, id_kamar, id_layanan, jumlah_layanan) VALUES (?,?,?,?)";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, null);
                 statement.setInt(2, id_kmr);
@@ -29,7 +29,7 @@ public class DAO_LayananTambahan {
                 statement.executeUpdate();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAO_LayananTambahan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -80,6 +80,7 @@ public class DAO_Kamar {
             Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     public List<Kamar> getKamarTerisi() {
         list = new ArrayList();
         ResultSet result;

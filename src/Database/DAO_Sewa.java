@@ -5,6 +5,7 @@
  */
 package Database;
 
+import Manajemen_Hotel.Kamar;
 import Manajemen_Hotel.Sewa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -67,4 +68,16 @@ public class DAO_Sewa {
         }
     }
     
+    public void updateSewaCheckOut(Kamar kamar, Sewa sewa){
+        try {
+            Connection connection = Koneksi_DB.getConnection();
+            String sql = "UPDATE sewa SET check_out = ? WHERE id_kamar = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setString(1, sewa.getCheck_out().toString());
+                statement.setInt(2, kamar.getNomor());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

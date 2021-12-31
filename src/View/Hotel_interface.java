@@ -7,6 +7,8 @@ package View;
 
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -47,7 +49,13 @@ public class Hotel_interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        KwitansiPembayaran = new javax.swing.JDialog();
+        jPanel8 = new javax.swing.JPanel();
+        Harga = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        OkHarga = new javax.swing.JButton();
+        BatalHarga = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -92,13 +100,82 @@ public class Hotel_interface extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         lblPelangganCheckOut = new javax.swing.JLabel();
         lblTglCheckOut = new javax.swing.JLabel();
-        ItemPelangganCheckOut = new javax.swing.JComboBox<>();
+        ItemNoKamarCheckOut = new javax.swing.JComboBox<>();
         ItemTglCheckOut = new javax.swing.JComboBox<>();
         ItemBlnCheckOut = new javax.swing.JComboBox<>();
         ItemThnCheckOut = new javax.swing.JComboBox<>();
-        lblTotalHarga = new javax.swing.JLabel();
-        totalHarga = new javax.swing.JTextField();
         OkCheckOut = new javax.swing.JButton();
+
+        KwitansiPembayaran.setSize(new java.awt.Dimension(458, 422));
+
+        Harga.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        Harga.setText("jLabel7");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel8.setText("Rp");
+
+        jLabel6.setText("Harga yang Harus Dibayar");
+
+        OkHarga.setText("Ok");
+        OkHarga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OkHargaActionPerformed(evt);
+            }
+        });
+
+        BatalHarga.setText("Batal");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Harga)
+                            .addGap(25, 25, 25))
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(OkHarga)
+                            .addGap(78, 78, 78)
+                            .addComponent(BatalHarga))))
+                .addGap(125, 125, 125))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(91, 91, 91)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Harga)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OkHarga)
+                    .addComponent(BatalHarga))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout KwitansiPembayaranLayout = new javax.swing.GroupLayout(KwitansiPembayaran.getContentPane());
+        KwitansiPembayaran.getContentPane().setLayout(KwitansiPembayaranLayout);
+        KwitansiPembayaranLayout.setHorizontalGroup(
+            KwitansiPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KwitansiPembayaranLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        KwitansiPembayaranLayout.setVerticalGroup(
+            KwitansiPembayaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KwitansiPembayaranLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,7 +236,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 10, Short.MAX_VALUE))
+                        .addGap(0, 58, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jLabel1)
@@ -257,7 +334,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                     .addComponent(ItemBlnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemThnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTglCheckIn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(OkCheckIn)
                 .addContainerGap())
         );
@@ -266,7 +343,7 @@ public class Hotel_interface extends javax.swing.JFrame {
 
         jLabel10.setText("FORM PEMESANAN LAYANAN TAMBAHAN");
 
-        lblPelangganLayananTambahan.setText("Kamar");
+        lblPelangganLayananTambahan.setText("No Kamar");
 
         lblLayananTambahan.setText("Layanan Tambahan");
 
@@ -346,7 +423,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                     .addComponent(TglLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ThnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(OkLayananTambahan)
                 .addContainerGap())
         );
@@ -355,19 +432,22 @@ public class Hotel_interface extends javax.swing.JFrame {
 
         jLabel14.setText("FORM CHECK OUT PELANGGAN");
 
-        lblPelangganCheckOut.setText("Pelanggan");
+        lblPelangganCheckOut.setText("No Kamar");
 
         lblTglCheckOut.setText("Tanggal Check Out");
 
-        ItemPelangganCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ItemNoKamarCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ItemNoKamarCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemNoKamarCheckOutActionPerformed(evt);
+            }
+        });
 
         ItemTglCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ItemBlnCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ItemThnCheckOut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lblTotalHarga.setText("Total Harga");
 
         OkCheckOut.setText("Ok");
 
@@ -384,8 +464,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPelangganCheckOut)
-                            .addComponent(lblTglCheckOut)
-                            .addComponent(lblTotalHarga))
+                            .addComponent(lblTglCheckOut))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -394,8 +473,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                                 .addComponent(ItemBlnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(ItemThnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ItemPelangganCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ItemNoKamarCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(137, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -410,18 +488,14 @@ public class Hotel_interface extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPelangganCheckOut)
-                    .addComponent(ItemPelangganCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ItemNoKamarCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTglCheckOut)
                     .addComponent(ItemTglCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemBlnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemThnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotalHarga)
-                    .addComponent(totalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addComponent(OkCheckOut)
                 .addGap(28, 28, 28))
         );
@@ -473,28 +547,40 @@ public class Hotel_interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_OkCheckInActionPerformed
 
+    private void OkHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkHargaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OkHargaActionPerformed
+
+    private void ItemNoKamarCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemNoKamarCheckOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItemNoKamarCheckOutActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BatalHarga;
     private javax.swing.JComboBox<String> BlnLayananTambahan;
+    private javax.swing.JLabel Harga;
     private javax.swing.JComboBox<String> ItemBlnCheckIn;
     private javax.swing.JComboBox<String> ItemBlnCheckOut;
     private javax.swing.JComboBox<String> ItemJumlahLayananTambahan;
     private javax.swing.JComboBox<String> ItemLayananTambahan;
+    private javax.swing.JComboBox<String> ItemNoKamarCheckOut;
     private javax.swing.JComboBox<String> ItemPelangganCheckIn;
-    private javax.swing.JComboBox<String> ItemPelangganCheckOut;
     private javax.swing.JComboBox<String> ItemPelangganLayananTambahan;
     private javax.swing.JComboBox<String> ItemPilihKamarCheckIn;
     private javax.swing.JComboBox<String> ItemTglCheckIn;
     private javax.swing.JComboBox<String> ItemTglCheckOut;
     private javax.swing.JComboBox<String> ItemThnCheckIn;
     private javax.swing.JComboBox<String> ItemThnCheckOut;
+    private javax.swing.JDialog KwitansiPembayaran;
     private javax.swing.JList<String> ListPelanggan;
     private javax.swing.JButton OkCheckIn;
     private javax.swing.JButton OkCheckOut;
+    private javax.swing.JButton OkHarga;
     private javax.swing.JButton OkLayananTambahan;
     private javax.swing.JComboBox<String> TglLayananTambahan;
     private javax.swing.JComboBox<String> ThnLayananTambahan;
@@ -509,14 +595,16 @@ public class Hotel_interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel lblJumLayananTambahan;
     private javax.swing.JLabel lblLayananTambahan;
@@ -528,9 +616,7 @@ public class Hotel_interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblPilihKamar;
     private javax.swing.JLabel lblTglCheckIn;
     private javax.swing.JLabel lblTglCheckOut;
-    private javax.swing.JLabel lblTotalHarga;
     private javax.swing.JButton tambah;
-    private javax.swing.JTextField totalHarga;
     // End of variables declaration//GEN-END:variables
 
     public JList<String> getListPelanggan() {return ListPelanggan;}
@@ -552,7 +638,15 @@ public class Hotel_interface extends javax.swing.JFrame {
     public JComboBox<String> getItemLayananTambahan() {return ItemLayananTambahan;}
     public JComboBox<String> getTglLayananTambahan() {return TglLayananTambahan;}
     public JComboBox<String> getThnLayananTambahan() {return ThnLayananTambahan;}
-     
+
+    public JComboBox<String> getItemNoKamarCheckOut() {return ItemNoKamarCheckOut;}
+    public JComboBox<String> getItemTglCheckOut() {return ItemTglCheckOut;}
+    public JComboBox<String> getItemBlnCheckOut() {return ItemBlnCheckOut;}
+    public JComboBox<String> getItemThnCheckOut() {return ItemThnCheckOut;}
+
+    public JDialog getKwitansiPembayaran() {return KwitansiPembayaran;}
+    public JLabel getHarga() {return Harga;}
+    
     public void addButtonListenerPendaftaran(ActionListener ButtonListener){
         tambah.addActionListener(ButtonListener);
     }
@@ -565,5 +659,14 @@ public class Hotel_interface extends javax.swing.JFrame {
     
     public void showMessageBox(String s) {
         JOptionPane.showMessageDialog(this, s);
-    } 
+    }
+    
+    public void addButtonListenerCheckout(ActionListener ButtonListener){
+        OkCheckOut.addActionListener(ButtonListener);
+    }
+    
+    public void addButtonListenerKwitansi(ActionListener ButtonListener){
+        OkHarga.addActionListener(ButtonListener);
+        BatalHarga.addActionListener(ButtonListener);
+    }
 }

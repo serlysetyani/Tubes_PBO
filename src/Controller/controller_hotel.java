@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author SUYANTO
@@ -48,6 +49,11 @@ public class controller_hotel {
         //buat layanan tambahan
         view.addButtonListenerLayananTambahan(new ButtonOkLayananTambahan());
         loadListPelangganMasihSewa();
+        // buat check out
+        view.addButtonListenerCheckout(new ButtonCheckOutHandler());
+        
+        // Buat Kwitansi
+        view.addButtonListenerKwitansi(new ButtonKwitansiHandler());
         
     }
 
@@ -84,7 +90,15 @@ public class controller_hotel {
         DefaultComboBoxModel kamarDisewa = new DefaultComboBoxModel();
         view.getItemPelangganLayananTambahan().setModel(kamarDisewa);
         for (int i = 0; i < s.size(); i++){
-               view.getItemPelangganLayananTambahan().addItem(Integer.toString(s.get(i).getKamar().getNomor())); //Kamarnya kosong
+               view.getItemPelangganLayananTambahan().addItem(Integer.toString(s.get(i).getKamar().getNomor()));
+        }
+    }
+    // ================================= buat checkout =======================
+    public void loadListPelangganCheckOut(){
+        DefaultComboBoxModel kamarDisewa = new DefaultComboBoxModel();
+        view.getItemNoKamarCheckOut().setModel(kamarDisewa);
+        for (int i = 0; i < s.size(); i++){
+               view.getItemNoKamarCheckOut().addItem(Integer.toString(s.get(i).getKamar().getNomor()));
         }
     }
     
@@ -210,8 +224,8 @@ public class controller_hotel {
                                 default:
                                     break;
                             }
-                            break;
                         }
+                        break;
                     }
                     dao_lt.insertLayananTambahan(no_kamar, kodeLayanantambahan, jum);
                     break;
@@ -219,5 +233,35 @@ public class controller_hotel {
                     break;
             }
         }
+    }
+    
+    class ButtonCheckOutHandler implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            switch (ae.getActionCommand()){
+                case "Ok":
+                    //int no_kamar = view.getItemNoKamarCheckOut().get;
+                    
+                    view.getKwitansiPembayaran().setVisible(true);
+                    //view.getHarga().setText();
+            }
+        }
+    }
+    
+    class ButtonKwitansiHandler implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            switch (ae.getActionCommand()){
+                case "Ok":
+                    
+                    break;
+                case "Batal":
+                    view.getKwitansiPembayaran().dispose();
+                    break;
+                default:
+                    break;
+            }
+        }
+    
     }
 }
