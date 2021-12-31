@@ -172,7 +172,7 @@ public class controller_hotel {
         @Override
         public void actionPerformed(ActionEvent ae) {
             switch (ae.getActionCommand()){
-                case "OK":
+                case "Ok":
                     int no_kamar = Integer.parseInt(view.getItemPelangganLayananTambahan().getSelectedItem().toString());
                     int kodeLayanantambahan = Integer.parseInt(view.getItemLayananTambahan().getSelectedItem().toString());
                     int jum = Integer.parseInt(view.getItemJumlahLayananTambahan().getSelectedItem().toString());
