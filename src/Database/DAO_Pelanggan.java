@@ -53,10 +53,12 @@ public class DAO_Pelanggan {
             try (Statement statement = Koneksi_DB.getConnection().createStatement()){
                 result = statement.executeQuery("SELECT * FROM pelanggan WHERE No_identitas = "+id_pelanggan);
                 pelanggan = new Pelanggan();
-                pelanggan.setNo_identitas(Integer.toString(result.getInt(1)));
-                pelanggan.setNama(result.getString(2));
-                pelanggan.setNo_telepon(result.getString(3));
-                pelanggan.setAlamat(result.getString(4));
+                if (result.next()){
+                    pelanggan.setNo_identitas(Integer.toString(result.getInt(1)));
+                    pelanggan.setNama(result.getString(2));
+                    pelanggan.setNo_telepon(result.getString(3));
+                    pelanggan.setAlamat(result.getString(4));
+                }
             }
             result.close();
             return pelanggan;
