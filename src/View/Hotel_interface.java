@@ -559,6 +559,9 @@ public class Hotel_interface extends javax.swing.JFrame {
     public void addButtonListenerCheckIn(ActionListener ButtonListener){
         OkCheckIn.addActionListener(ButtonListener);
     }
+    public void addButtonListenerLayananTambahan(ActionListener ButtonListener){
+        OkLayananTambahan.addActionListener(ButtonListener);
+    }
     
     public void showMessageBox(String s) {
         JOptionPane.showMessageDialog(this, s);

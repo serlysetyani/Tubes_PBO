@@ -46,8 +46,9 @@ public class controller_hotel {
         loadListNamaPendaftar();
         loadListKamar();
         //buat layanan tambahan
+        view.addButtonListenerLayananTambahan(new ButtonOkLayananTambahan());
         loadListPelangganMasihSewa();
-
+        
     }
 
     public controller_hotel() {}
@@ -84,7 +85,7 @@ public class controller_hotel {
         view.getItemPelangganLayananTambahan().setModel(kamarDisewa);
         for (int i = 0; i < s.size(); i++){
            if (s.get(i).getCheck_out() == null){
-            view.getItemPelangganLayananTambahan().addItem(Integer.toString(s.get(i).getKamar().getNomor()));
+               view.getItemPelangganLayananTambahan().addItem(Integer.toString(s.get(i).getKamar().getNomor())); //Kamarnya kosong
            }
         }
     }
@@ -104,6 +105,7 @@ public class controller_hotel {
                     dao_p.insertPelanggan(pelanggan);
                     p.add(pelanggan);
                     loadList();
+                    loadListNamaPendaftar();
                     break;
                  default:
                     break;
@@ -167,35 +169,51 @@ public class controller_hotel {
                     int tahun = Integer.parseInt(view.getThnLayananTambahan().getSelectedItem().toString());
                     for (Sewa se : s){
                         if (se.getKamar().getNomor() == no_kamar && se.getCheck_out() == null){
-                            if (kodeLayanantambahan == 1){
-                                se.tambahLayanan(new Bersihkan_Kamar(100000, LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 2){
-                                se.tambahLayanan(new Laundry(20000, jum, LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 3){
-                                se.tambahLayanan(new Taxi(25000, jum, LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 4){
-                                se.tambahLayanan(new Tambah_Kasur(100000, jum, LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 5){
-                                se.tambahLayanan(new Spa(jum, 200000, "Spa paket 1", LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 6){
-                                se.tambahLayanan(new Spa(jum, 250000, "Spa paket 2", LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 7){
-                                se.tambahLayanan(new Spa(jum, 300000, "Spa paket 3", LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 8){
-                                se.tambahLayanan(new Restoran(jum, 50000, "Kopi", LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 9){
-                                se.tambahLayanan(new Restoran(jum, 15000, "Teh", LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 10){
-                                se.tambahLayanan(new Restoran(jum, 50000, "Nasi Goreng", LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 11){
-                                se.tambahLayanan(new Restoran(jum, 45000, "Burger", LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 12){
-                                se.tambahLayanan(new Makanan_Ringan("Soda", jum, 20000, LocalDate.of(tahun,bulan,tanggal)));
-                            }else if (kodeLayanantambahan == 13){
-                                se.tambahLayanan(new Makanan_Ringan("Coklat", jum, 25000, LocalDate.of(tahun,bulan,tanggal)));
+                            switch (kodeLayanantambahan) {
+                                case 1:
+                                    se.tambahLayanan(new Bersihkan_Kamar(100000, LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 2:
+                                    se.tambahLayanan(new Laundry(20000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 3:
+                                    se.tambahLayanan(new Taxi(25000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 4:
+                                    se.tambahLayanan(new Tambah_Kasur(100000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 5:
+                                    se.tambahLayanan(new Spa(jum, 200000, "Spa paket 1", LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 6:
+                                    se.tambahLayanan(new Spa(jum, 250000, "Spa paket 2", LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 7:
+                                    se.tambahLayanan(new Spa(jum, 300000, "Spa paket 3", LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 8:
+                                    se.tambahLayanan(new Restoran(jum, 50000, "Kopi", LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 9:
+                                    se.tambahLayanan(new Restoran(jum, 15000, "Teh", LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 10:
+                                    se.tambahLayanan(new Restoran(jum, 50000, "Nasi Goreng", LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 11:
+                                    se.tambahLayanan(new Restoran(jum, 45000, "Burger", LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 12:
+                                    se.tambahLayanan(new Makanan_Ringan("Soda", jum, 20000, LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                case 13:
+                                    se.tambahLayanan(new Makanan_Ringan("Coklat", jum, 25000, LocalDate.of(tahun,bulan,tanggal)));
+                                    break;
+                                default:
+                                    break;
                             }
+                            break;
                         }
-                        break;
                     }
                     dao_lt.insertLayananTambahan(no_kamar, kodeLayanantambahan, jum);
                     break;

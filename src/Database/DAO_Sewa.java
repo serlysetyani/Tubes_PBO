@@ -40,7 +40,6 @@ public class DAO_Sewa {
         } catch (SQLException ex) {
             Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }    
 
     public List<Sewa> getAllSewa() {
