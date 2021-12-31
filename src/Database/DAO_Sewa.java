@@ -42,20 +42,20 @@ public class DAO_Sewa {
         }
     }    
 
-    public List<Sewa> getAllSewa() {
+    public List<Sewa> getAllSewaCheckOutNULL() {
         dao_k = new DAO_Kamar();
         dao_p = new DAO_Pelanggan();
         list = new ArrayList();
         ResultSet result;
         try {
             try (Statement statement = Koneksi_DB.getConnection().createStatement()){
-                result = statement.executeQuery("SELECT * FROM sewa");
+                result = statement.executeQuery("SELECT * FROM sewa WHERE check_out IS NULL ORDER BY id_kamar ASC");
                 while (result.next()){
                     Sewa sewa = new Sewa();
                     sewa.setCheck_in(result.getDate(2).toLocalDate());
                     sewa.setCheck_out(null);
-                    sewa.setKamar(dao_k.getKamarByIDKamar(result.getInt(4)));
-                    sewa.setPemesan(dao_p.getPelangganByIDPelanggan(result.getInt(5)));
+                    sewa.setPemesan(dao_p.getPelangganByIDPelanggan(result.getInt(4)));
+                    sewa.setKamar(dao_k.getKamarByIDKamar(result.getInt(5)));
                     list.add(sewa);
                 }
             }

@@ -36,7 +36,7 @@ public class controller_hotel {
         this.dao_lt = new DAO_LayananTambahan();
         this.p = dao_p.getAllPelanggan();
         this.k = dao_k.getKamarKosong();
-        this.s = dao_s.getAllSewa();
+        this.s = dao_s.getAllSewaCheckOutNULL();
         
         // buat form pendaftaran
         view.addButtonListenerPendaftaran(new ButtonHandlerPendaftaran());
@@ -84,9 +84,7 @@ public class controller_hotel {
         DefaultComboBoxModel kamarDisewa = new DefaultComboBoxModel();
         view.getItemPelangganLayananTambahan().setModel(kamarDisewa);
         for (int i = 0; i < s.size(); i++){
-           if (s.get(i).getCheck_out() == null){
                view.getItemPelangganLayananTambahan().addItem(Integer.toString(s.get(i).getKamar().getNomor())); //Kamarnya kosong
-           }
         }
     }
     
