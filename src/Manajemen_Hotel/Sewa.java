@@ -38,7 +38,7 @@ public class Sewa implements Kwitansi_pembayaran{
     public LocalDate getCheck_in() {return check_in;}
     public LocalDate getCheck_out() {return check_out;}
     public Kamar getKamar(){return kamar;};
-    public int getDurasi(){return Period.between(check_in, check_in).getDays();}
+    public int getDurasi(){return Period.between(check_in, check_out).getDays();}
     public ArrayList<Layanan> getService() {return service;}
     
     

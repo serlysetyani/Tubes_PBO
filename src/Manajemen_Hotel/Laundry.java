@@ -14,9 +14,6 @@ import java.time.LocalDate;
 public class Laundry extends Layanan{
     private int harga_layanan, berat_per_kg;
     
-    public String getLayanan_dipesan(){
-        return null; //Belum Tahu
-    }
 
     public int getHarga_layanan() {
         return harga_layanan;
