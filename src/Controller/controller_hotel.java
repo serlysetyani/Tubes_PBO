@@ -51,7 +51,7 @@ public class controller_hotel {
         loadListPelangganMasihSewa();
         // buat check out
         view.addButtonListenerCheckout(new ButtonCheckOutHandler());
-        
+        loadListKamarCheckOut();
         // Buat Kwitansi
         view.addButtonListenerKwitansi(new ButtonKwitansiHandler());
         
@@ -94,7 +94,7 @@ public class controller_hotel {
         }
     }
     // ================================= buat checkout =======================
-    public void loadListPelangganCheckOut(){
+    public void loadListKamarCheckOut(){
         DefaultComboBoxModel kamarDisewa = new DefaultComboBoxModel();
         view.getItemNoKamarCheckOut().setModel(kamarDisewa);
         for (int i = 0; i < s.size(); i++){
@@ -227,7 +227,8 @@ public class controller_hotel {
                         }
                         break;
                     }
-                    dao_lt.insertLayananTambahan(no_kamar, kodeLayanantambahan, jum);
+                    dao_lt.insertLayananTambahan(no_kamar, kodeLayanantambahan, jum, LocalDate.of(tahun,bulan,tanggal));
+                    view.showMessageBox("Data Layanan Tambahan Berhasil Ditambahkan");
                     break;
                 default:
                     break;
@@ -240,11 +241,11 @@ public class controller_hotel {
         public void actionPerformed(ActionEvent ae) {
             switch (ae.getActionCommand()){
                 case "Ok":
-                    //int no_kamar = Integer.parseInt(view.getItemNoKamarCheckOut().getSelectedItem().toString());
-                    //int tanggal = Integer.parseInt(view.getTglLayananTambahan().getSelectedItem().toString());
-                    //int bulan = Integer.parseInt(view.getBlnLayananTambahan().getSelectedItem().toString());
-                    //int tahun = Integer.parseInt(view.getThnLayananTambahan().getSelectedItem().toString());
-                    //Sewa sewa = 
+                    int no_kamar = Integer.parseInt(view.getItemNoKamarCheckOut().getSelectedItem().toString());
+                    int tanggal = Integer.parseInt(view.getTglLayananTambahan().getSelectedItem().toString());
+                    int bulan = Integer.parseInt(view.getBlnLayananTambahan().getSelectedItem().toString());
+                    int tahun = Integer.parseInt(view.getThnLayananTambahan().getSelectedItem().toString());
+                    
                     view.getHarga().setText("");
                     view.getKwitansiPembayaran().setVisible(true);
                     //view.getHarga().setText();

@@ -68,25 +68,23 @@ public class DAO_Sewa {
         }
     }
     
-        public List<Sewa> getAllSewaByIdKamar(int no_kamar) {
+    public Sewa getAllSewaByIdKamar(int no_kamar) {
         dao_k = new DAO_Kamar();
         dao_p = new DAO_Pelanggan();
-        list = new ArrayList();
+        Sewa sewa = new Sewa();
         ResultSet result;
         try {
             try (Statement statement = Koneksi_DB.getConnection().createStatement()){
                 result = statement.executeQuery("SELECT * FROM sewa WHERE id_kamar ="+no_kamar);
-                while (result.next()){
-                    Sewa sewa = new Sewa();
+                if (result.next()){
                     sewa.setCheck_in(result.getDate(2).toLocalDate());
                     sewa.setCheck_out(null);
                     sewa.setPemesan(dao_p.getPelangganByIDPelanggan(result.getInt(4)));
                     sewa.setKamar(dao_k.getKamarByIDKamar(result.getInt(5)));
-                    list.add(sewa);
                 }
             }
             result.close();
-            return list;
+            return sewa;
         } catch (SQLException ex){
             Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
             return null;
