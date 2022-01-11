@@ -48,31 +48,10 @@ public class Sewa implements Kwitansi_pembayaran{
 
     @Override
     public int getTotalHarga() {
-        int total = this.getKamar().getHarga() * this.getDurasi();
+        int total = this.getKamar().getHarga() * getDurasi();
         ArrayList<Layanan> layananDipesan = this.getService();
         for (int i=0; i<layananDipesan.size();i++){
-            if (layananDipesan.get(i) instanceof Bersihkan_Kamar){
-                Bersihkan_Kamar bk = (Bersihkan_Kamar)layananDipesan.get(i);
-                total = total + bk.getHarga_layanan();
-            } else if (layananDipesan.get(i) instanceof Laundry){
-                Laundry l = (Laundry)layananDipesan.get(i);
-                total = total + l.getBerat_per_kg()*l.getHarga_layanan();
-            } else if (layananDipesan.get(i) instanceof Taxi){
-                Taxi t = (Taxi)layananDipesan.get(i);
-                total = total + t.getHarga_layanan()*t.getKm_ditempuh();
-            } else if (layananDipesan.get(i) instanceof Tambah_Kasur){
-                Tambah_Kasur tk = (Tambah_Kasur)layananDipesan.get(i);
-                total = total + tk.getHarga_layanan()*tk.getJumlah();
-            } else if (layananDipesan.get(i) instanceof Spa){
-                Spa sp = (Spa)layananDipesan.get(i);
-                total = total + sp.getHarga_layanan()*sp.getJumlah();
-            } else if (layananDipesan.get(i) instanceof Restoran){
-                Restoran r = (Restoran)layananDipesan.get(i);
-                total = total + r.getHarga_layanan()*r.getJumlah();
-            } else if (layananDipesan.get(i) instanceof Makanan_Ringan){
-                Makanan_Ringan mk = (Makanan_Ringan)layananDipesan.get(i);
-                total = total + mk.getHarga_layanan()*mk.getJumlah();
-            } 
+            total = total + (layananDipesan.get(i).getHarga_layanan()*layananDipesan.get(i).getJumlah_layanan()); 
         }
         return total;
     }

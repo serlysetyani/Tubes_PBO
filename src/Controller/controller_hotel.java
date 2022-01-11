@@ -52,8 +52,6 @@ public class controller_hotel {
         // buat check out
         view.addButtonListenerCheckout(new ButtonCheckOutHandler());
         loadListKamarCheckOut();
-        // Buat Kwitansi
-        view.addButtonListenerKwitansi(new ButtonKwitansiHandler());
         
     }
 
@@ -160,6 +158,7 @@ public class controller_hotel {
                     view.showMessageBox("Data Sewa Berhasil Ditambahkan");
                     k = dao_k.getKamarKosong();
                     loadListKamar();
+                    loadListPelangganMasihSewa();
                     break;
                 default:
                     break;
@@ -183,43 +182,43 @@ public class controller_hotel {
                         if (se.getKamar().getNomor() == no_kamar && se.getCheck_out() == null){
                             switch (kodeLayanantambahan) {
                                 case 1:
-                                    se.tambahLayanan(new Bersihkan_Kamar(100000, LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Layanan(LocalDate.of(tahun,bulan,tanggal), 100000, jum, "Bersihkan Kamar"));
                                     break;
                                 case 2:
-                                    se.tambahLayanan(new Laundry(20000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Layanan(LocalDate.of(tahun,bulan,tanggal), 20000, jum, "Laundry"));
                                     break;
                                 case 3:
-                                    se.tambahLayanan(new Taxi(25000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Layanan(LocalDate.of(tahun,bulan,tanggal), 25000, jum, "Taxi"));
                                     break;
                                 case 4:
-                                    se.tambahLayanan(new Tambah_Kasur(100000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Layanan(LocalDate.of(tahun,bulan,tanggal), 100000, jum, "Tambah Kasur"));
                                     break;
                                 case 5:
-                                    se.tambahLayanan(new Spa(jum, 200000, "Spa paket 1", LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Layanan(LocalDate.of(tahun,bulan,tanggal), 200000, jum, "Spa paket 1"));
                                     break;
                                 case 6:
-                                    se.tambahLayanan(new Spa(jum, 250000, "Spa paket 2", LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Layanan(LocalDate.of(tahun,bulan,tanggal), 250000, jum, "Spa paket 2"));
                                     break;
                                 case 7:
-                                    se.tambahLayanan(new Spa(jum, 300000, "Spa paket 3", LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Layanan(LocalDate.of(tahun,bulan,tanggal), 300000, jum, "Spa paket 3"));
                                     break;
                                 case 8:
-                                    se.tambahLayanan(new Restoran(jum, 50000, "Kopi", LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Makanan("Kopi", LocalDate.of(tahun,bulan,tanggal), 50000, jum, "Restoran"));
                                     break;
                                 case 9:
-                                    se.tambahLayanan(new Restoran(jum, 15000, "Teh", LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Makanan("Teh", LocalDate.of(tahun,bulan,tanggal), 15000, jum, "Restoran"));
                                     break;
                                 case 10:
-                                    se.tambahLayanan(new Restoran(jum, 50000, "Nasi Goreng", LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Makanan("Nasi Goreng", LocalDate.of(tahun,bulan,tanggal), 50000, jum, "Restoran"));
                                     break;
                                 case 11:
-                                    se.tambahLayanan(new Restoran(jum, 45000, "Burger", LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Makanan("Burger", LocalDate.of(tahun,bulan,tanggal), 45000, jum, "Restoran"));
                                     break;
                                 case 12:
-                                    se.tambahLayanan(new Makanan_Ringan("Soda", jum, 20000, LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Makanan("Soda", LocalDate.of(tahun,bulan,tanggal), 20000, jum, "Makanan Ringan"));
                                     break;
                                 case 13:
-                                    se.tambahLayanan(new Makanan_Ringan("Coklat", jum, 25000, LocalDate.of(tahun,bulan,tanggal)));
+                                    se.tambahLayanan(new Makanan("Coklat", LocalDate.of(tahun,bulan,tanggal), 25000, jum, "Makanan Ringan"));
                                     break;
                                 default:
                                     break;
@@ -241,32 +240,24 @@ public class controller_hotel {
         public void actionPerformed(ActionEvent ae) {
             switch (ae.getActionCommand()){
                 case "Ok":
+                    int harga = 0;
                     int no_kamar = Integer.parseInt(view.getItemNoKamarCheckOut().getSelectedItem().toString());
-                    int tanggal = Integer.parseInt(view.getTglLayananTambahan().getSelectedItem().toString());
-                    int bulan = Integer.parseInt(view.getBlnLayananTambahan().getSelectedItem().toString());
-                    int tahun = Integer.parseInt(view.getThnLayananTambahan().getSelectedItem().toString());
-                    
-                    view.getHarga().setText("");
-                    view.getKwitansiPembayaran().setVisible(true);
-                    //view.getHarga().setText();
+                    int tanggal = Integer.parseInt(view.getItemTglCheckOut().getSelectedItem().toString());
+                    int bulan = Integer.parseInt(view.getItemBlnCheckOut().getSelectedItem().toString());
+                    int tahun = Integer.parseInt(view.getItemThnCheckOut().getSelectedItem().toString());
+                    for (Sewa se : s){
+                        if (se.getKamar().getNomor() == no_kamar && se.getCheck_out() == null){
+                            se.setCheck_out(LocalDate.of(tahun,bulan,tanggal));
+                            harga = se.getTotalHarga();
+                            se.getKamar().setStatus("kosong");
+                            dao_k.updateKamarStatus(se.getKamar());
+                            dao_s.updateSewaCheckOut(se);
+                            break;
+                        }
+                    }
+                    view.getTotalHarga().setText(Integer.toString(harga));
             }
         }
     }
     
-    class ButtonKwitansiHandler implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            switch (ae.getActionCommand()){
-                case "Ok":
-                    
-                    break;
-                case "Batal":
-                    view.getKwitansiPembayaran().dispose();
-                    break;
-                default:
-                    break;
-            }
-        }
-    
-    }
 }

@@ -25,6 +25,7 @@ public class DAO_Sewa {
     private List<Sewa> list;
     private DAO_Kamar dao_k;
     private DAO_Pelanggan dao_p;
+    private DAO_LayananTambahan dao_lt;
 
     public void insertSewa(Sewa sewa) {
         try {
@@ -46,6 +47,7 @@ public class DAO_Sewa {
     public List<Sewa> getAllSewaCheckOutNULL() {
         dao_k = new DAO_Kamar();
         dao_p = new DAO_Pelanggan();
+        dao_lt = new DAO_LayananTambahan();
         list = new ArrayList();
         ResultSet result;
         try {
@@ -57,6 +59,7 @@ public class DAO_Sewa {
                     sewa.setCheck_out(null);
                     sewa.setPemesan(dao_p.getPelangganByIDPelanggan(result.getInt(4)));
                     sewa.setKamar(dao_k.getKamarByIDKamar(result.getInt(5)));
+                    sewa.setService(dao_lt.getLayananTambahanByIDKamar(result.getInt(5)));
                     list.add(sewa);
                 }
             }
@@ -91,13 +94,13 @@ public class DAO_Sewa {
         }
     }
     
-    public void updateSewaCheckOut(Kamar kamar, Sewa sewa){
+    public void updateSewaCheckOut(Sewa sewa){
         try {
             Connection connection = Koneksi_DB.getConnection();
-            String sql = "UPDATE sewa SET check_out = ? WHERE id_kamar = ?";
+            String sql = "UPDATE sewa SET check_out = ? WHERE id_kamar ="+sewa.getKamar().getNomor();
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, sewa.getCheck_out().toString());
-                statement.setInt(2, kamar.getNomor());
+                statement.executeUpdate();
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAO_Pelanggan.class.getName()).log(Level.SEVERE, null, ex);

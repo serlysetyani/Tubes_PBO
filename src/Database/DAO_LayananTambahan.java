@@ -5,14 +5,8 @@
  */
 package Database;
 
-import Manajemen_Hotel.Bersihkan_Kamar;
-import Manajemen_Hotel.Laundry;
-import Manajemen_Hotel.Layanan;
-import Manajemen_Hotel.Makanan_Ringan;
-import Manajemen_Hotel.Restoran;
-import Manajemen_Hotel.Spa;
-import Manajemen_Hotel.Tambah_Kasur;
-import Manajemen_Hotel.Taxi;
+
+import Manajemen_Hotel.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,65 +41,67 @@ public class DAO_LayananTambahan {
             Logger.getLogger(DAO_LayananTambahan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    /*
-    public List<Layanan> getLayananTambahanByIdKamar(int id_kamar){
-        list = new ArrayList();
+    
+    public ArrayList<Layanan> getLayananTambahanByIDKamar(int noKmr){
+        
+        ArrayList l = new ArrayList();
         ResultSet result;
         try {
             try (Statement statement = Koneksi_DB.getConnection().createStatement()){
-                result = statement.executeQuery("SELECT * FROM layanan_dipesan WHERE id_kamar = "+id_kamar);
+                result = statement.executeQuery("SELECT * FROM layanan_dipesan WHERE id_kamar ="+noKmr);
                 while (result.next()){
+                    Layanan layanan = new Layanan();
                     switch (result.getInt(3)) {
                         case 1:
-                            list.add(new Bersihkan_Kamar(100000, result.));
+                            layanan = new Layanan(result.getDate(5).toLocalDate(), 100000, result.getInt(4), "Bersihkan Kamar");
                             break;
                         case 2:
-                            se.tambahLayanan(new Laundry(20000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Layanan(result.getDate(5).toLocalDate(), 20000, result.getInt(4), "Laundry");
                             break;
                         case 3:
-                            se.tambahLayanan(new Taxi(25000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Layanan(result.getDate(5).toLocalDate(), 25000, result.getInt(4), "Taxi");
                             break;
                         case 4:
-                            se.tambahLayanan(new Tambah_Kasur(100000, jum, LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Layanan(result.getDate(5).toLocalDate(), 100000, result.getInt(4), "Tambah Kasur");
                             break;
                         case 5:
-                            se.tambahLayanan(new Spa(jum, 200000, "Spa paket 1", LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Layanan(result.getDate(5).toLocalDate(), 200000, result.getInt(4), "Spa paket 1");
                             break;
                         case 6:
-                            se.tambahLayanan(new Spa(jum, 250000, "Spa paket 2", LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Layanan(result.getDate(5).toLocalDate(), 250000, result.getInt(4), "Spa paket 2");
                             break;
                         case 7:
-                            se.tambahLayanan(new Spa(jum, 300000, "Spa paket 3", LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Layanan(result.getDate(5).toLocalDate(), 300000, result.getInt(4), "Spa paket 3");
                             break;
                         case 8:
-                            se.tambahLayanan(new Restoran(jum, 50000, "Kopi", LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Makanan("Kopi", result.getDate(5).toLocalDate(), 50000, result.getInt(4), "Restoran");
                             break;
                         case 9:
-                            se.tambahLayanan(new Restoran(jum, 15000, "Teh", LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Makanan("Teh", result.getDate(5).toLocalDate(), 15000, result.getInt(4), "Restoran");
                             break;
                         case 10:
-                            se.tambahLayanan(new Restoran(jum, 50000, "Nasi Goreng", LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Makanan("Nasi Goreng", result.getDate(5).toLocalDate(), 50000, result.getInt(4), "Restoran");
                             break;
                         case 11:
-                            se.tambahLayanan(new Restoran(jum, 45000, "Burger", LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Makanan("Burger", result.getDate(5).toLocalDate(), 45000, result.getInt(4), "Restoran");
                             break;
                         case 12:
-                            se.tambahLayanan(new Makanan_Ringan("Soda", jum, 20000, LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Makanan("Soda", result.getDate(5).toLocalDate(), 20000, result.getInt(4), "Makanan Ringan");
                             break;
                         case 13:
-                            se.tambahLayanan(new Makanan_Ringan("Coklat", jum, 25000, LocalDate.of(tahun,bulan,tanggal)));
+                            layanan = new Makanan("Coklat", result.getDate(5).toLocalDate(), 25000, result.getInt(4), "Makanan Ringan");
                             break;
                         default:
                             break;
                     }
+                    l.add(layanan);
                 }
             }
             result.close();
-            return list;
+            return l;
         } catch (SQLException ex){
             Logger.getLogger(Koneksi_DB.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
-    */
 }
