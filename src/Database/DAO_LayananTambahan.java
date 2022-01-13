@@ -104,4 +104,18 @@ public class DAO_LayananTambahan {
             return null;
         }
     }
+    
+    public void deleteLayananDipesanByIDKamar(int no_kamar){        
+        try {
+            Connection connection = Koneksi_DB.getConnection();
+            String sql = "DELETE FROM layanan_dipesan WHERE id_kamar = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, no_kamar);
+                statement.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_LayananTambahan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }

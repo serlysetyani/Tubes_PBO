@@ -99,6 +99,14 @@ public class controller_hotel {
                view.getItemNoKamarCheckOut().addItem(Integer.toString(s.get(i).getKamar().getNomor()));
         }
     }
+
+    public void loadListPelangganMasihSewainCheckout(){
+        DefaultComboBoxModel kamarDisewa = new DefaultComboBoxModel();
+        view.getItemNoKamarCheckOut().setModel(kamarDisewa);
+        for (int i = 0; i < s.size(); i++){
+               view.getItemNoKamarCheckOut().addItem(Integer.toString(s.get(i).getKamar().getNomor()));
+        }
+    }
     
     // ======================= Button Handler ==================================
     // ======================= Pendaftaran =====================================
@@ -155,10 +163,11 @@ public class controller_hotel {
                     s.add(se);
                     dao_s.insertSewa(se);
                     dao_k.updateKamarStatus(kamar);
-                    view.showMessageBox("Data Sewa Berhasil Ditambahkan");
+                    view.showMessageBox(se.getInfo());
                     k = dao_k.getKamarKosong();
                     loadListKamar();
                     loadListPelangganMasihSewa();
+                    loadListKamarCheckOut();
                     break;
                 default:
                     break;
@@ -256,6 +265,13 @@ public class controller_hotel {
                         }
                     }
                     view.getTotalHarga().setText(Integer.toString(harga));
+                    dao_lt.deleteLayananDipesanByIDKamar(no_kamar);
+                    k = dao_k.getKamarKosong();
+                    s = dao_s.getAllSewaCheckOutNULL();
+                    loadListKamar();
+                    loadListPelangganMasihSewa();
+                    loadListPelangganMasihSewainCheckout();
+                    
             }
         }
     }

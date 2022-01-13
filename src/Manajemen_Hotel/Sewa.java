@@ -40,7 +40,7 @@ public class Sewa implements Kwitansi_pembayaran{
     public Kamar getKamar(){return kamar;};
     public int getDurasi(){return Period.between(check_in, check_out).getDays();}
     public ArrayList<Layanan> getService() {return service;}
-    
+    public String getInfo(){return pemesan.getNama()+" telah menyewa kamar "+kamar.getNomor();}
     
     public void tambahLayanan(Layanan l){
         this.service.add(l);
