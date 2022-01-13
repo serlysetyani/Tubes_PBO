@@ -125,7 +125,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jScrollPane1" min="-2" pref="245" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
@@ -288,7 +288,7 @@
                                   <Component id="ItemThnCheckIn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblTglCheckIn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="81" max="32767" attributes="0"/>
+                              <EmptySpace pref="85" max="32767" attributes="0"/>
                               <Component id="OkCheckIn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -476,7 +476,7 @@
                                   <Component id="BlnLayananTambahan" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ThnLayananTambahan" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="69" max="32767" attributes="0"/>
+                              <EmptySpace pref="73" max="32767" attributes="0"/>
                               <Component id="OkLayananTambahan" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -628,6 +628,8 @@
                                           <Component id="lblPelangganCheckOut" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblTglCheckOut" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -640,6 +642,7 @@
                                           </Group>
                                           <Component id="ItemNoKamarCheckOut" min="-2" max="-2" attributes="0"/>
                                           <Component id="totalHarga" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nKmrCheckOut" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -669,12 +672,19 @@
                                   <Component id="ItemBlnCheckOut" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ItemThnCheckOut" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <EmptySpace pref="41" max="32767" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="nKmrCheckOut" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="totalHarga" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="100" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="OkCheckOut" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
@@ -772,7 +782,22 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="totalHarga">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="rp."/>
+                        <Property name="text" type="java.lang.String" value="Rp."/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel6">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Telah Check Out:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel7">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nomor Kamar"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="nKmrCheckOut">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="---"/>
                       </Properties>
                     </Component>
                   </SubComponents>

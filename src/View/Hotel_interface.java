@@ -100,6 +100,9 @@ public class Hotel_interface extends javax.swing.JFrame {
         OkCheckOut = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         totalHarga = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        nKmrCheckOut = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,7 +163,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 66, Short.MAX_VALUE))
+                        .addGap(0, 70, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jLabel1)
@@ -258,7 +261,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                     .addComponent(ItemBlnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemThnCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTglCheckIn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(OkCheckIn)
                 .addContainerGap())
         );
@@ -347,7 +350,7 @@ public class Hotel_interface extends javax.swing.JFrame {
                     .addComponent(TglLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ThnLayananTambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(OkLayananTambahan)
                 .addContainerGap())
         );
@@ -377,7 +380,13 @@ public class Hotel_interface extends javax.swing.JFrame {
 
         jLabel3.setText("Total Harga");
 
-        totalHarga.setText("rp.");
+        totalHarga.setText("Rp.");
+
+        jLabel6.setText("Telah Check Out:");
+
+        jLabel7.setText("Nomor Kamar");
+
+        nKmrCheckOut.setText("---");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -393,7 +402,9 @@ public class Hotel_interface extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPelangganCheckOut)
                             .addComponent(lblTglCheckOut)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -403,7 +414,8 @@ public class Hotel_interface extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(ItemThnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(ItemNoKamarCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totalHarga))))
+                            .addComponent(totalHarga)
+                            .addComponent(nKmrCheckOut))))
                 .addContainerGap(137, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -425,11 +437,17 @@ public class Hotel_interface extends javax.swing.JFrame {
                     .addComponent(ItemTglCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemBlnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemThnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nKmrCheckOut)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(totalHarga))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(OkCheckOut)
                 .addGap(28, 28, 28))
         );
@@ -522,6 +540,8 @@ public class Hotel_interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -540,6 +560,7 @@ public class Hotel_interface extends javax.swing.JFrame {
     private javax.swing.JLabel lblPilihKamar;
     private javax.swing.JLabel lblTglCheckIn;
     private javax.swing.JLabel lblTglCheckOut;
+    private javax.swing.JLabel nKmrCheckOut;
     private javax.swing.JButton tambah;
     private javax.swing.JLabel totalHarga;
     // End of variables declaration//GEN-END:variables
@@ -575,6 +596,11 @@ public class Hotel_interface extends javax.swing.JFrame {
     public void setTotalHarga(JLabel totalHarga) {
         this.totalHarga = totalHarga;
     }
+    public JLabel getnKmrCheckOut() {return nKmrCheckOut;}
+    public void setnKmrCheckOut(JLabel nKmrCheckOut) {
+        this.nKmrCheckOut = nKmrCheckOut;
+    }
+    
     
 
     public void addButtonListenerPendaftaran(ActionListener ButtonListener){

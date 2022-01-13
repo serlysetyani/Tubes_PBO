@@ -265,6 +265,7 @@ public class controller_hotel {
                         }
                     }
                     view.getTotalHarga().setText(Integer.toString(harga));
+                    view.getnKmrCheckOut().setText(Integer.toString(no_kamar));
                     dao_lt.deleteLayananDipesanByIDKamar(no_kamar);
                     k = dao_k.getKamarKosong();
                     s = dao_s.getAllSewaCheckOutNULL();
