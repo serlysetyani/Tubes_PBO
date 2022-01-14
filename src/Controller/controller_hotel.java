@@ -114,18 +114,22 @@ public class controller_hotel {
         @Override
         public void actionPerformed(ActionEvent ae) {
              switch (ae.getActionCommand()) {
-                 case "Tambah":
-                    String no_identitas = view.getFormId().getText();
-                    String nama = view.getFormNama().getText();
-                    String no_telepon = view.getFormNoTelp().getText();
-                    String alamat = view.getFormAlamat().getText();
-                    Pelanggan pelanggan = new Pelanggan(nama, no_telepon, no_identitas, alamat);
-                    dao_p.insertPelanggan(pelanggan);
-                    p.add(pelanggan);
-                    loadList();
-                    loadListNamaPendaftar();
-                    break;
-                 default:
+                case "Tambah":
+                    try{
+                        String no_identitas = view.getFormId().getText();
+                        String nama = view.getFormNama().getText();
+                        String no_telepon = view.getFormNoTelp().getText();
+                        String alamat = view.getFormAlamat().getText();
+                        Pelanggan pelanggan = new Pelanggan(nama, no_telepon, no_identitas, alamat);
+                        dao_p.insertPelanggan(pelanggan);
+                        p.add(pelanggan);
+                        loadList();
+                        loadListNamaPendaftar();
+                        break;
+                    } catch (NumberFormatException ne) {
+                        view.DisplayError("Form belum di isi");
+                    }
+                default:
                     break;
              }
         }

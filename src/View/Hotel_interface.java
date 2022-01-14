@@ -620,4 +620,8 @@ public class Hotel_interface extends javax.swing.JFrame {
     public void addButtonListenerCheckout(ActionListener ButtonListener){
         OkCheckOut.addActionListener(ButtonListener);
     }
+    
+    public void DisplayError(String s){
+        JOptionPane.showMessageDialog(this, s);
+    }
 }
